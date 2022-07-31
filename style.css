@@ -1,0 +1,206 @@
+
+.top-container{
+    color: white;
+    background-color: #1f2937;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.header{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 160px;
+}
+
+.header-logo, ul{
+    display: flex;
+}
+
+.header-logo{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.content img{
+    width: 450px;
+    height: auto;
+}
+
+ul{
+    gap: 14px;
+    list-style: none;
+}
+
+.content{
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 160px;
+    padding: 125px 0px;
+}
+
+.text{
+    max-width: 450px;
+}
+
+.hero-main-text{
+    font-size: 48px;
+    font-weight: bolder;
+    color: #f9faf8;
+    
+}
+
+.bot-container{
+    text-align: center;
+}
+
+.bot-content{
+    gap: 12px;
+    display: flex;
+    justify-content: center;
+}
+.bot-title{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+    font-weight: bolder;
+    color: #1f2937;
+    padding: 30px;
+}
+.images-with-info{
+    max-width: 200px;
+}
+
+.giant-quote{
+    color: #1f2937;
+    display: block;
+    font-size: 48px;
+    margin: 250px;
+}
+
+.quote-by{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-align: right;
+    font-weight: bolder;
+}
+
+.signup-prompt{
+    color: white;
+    gap: 10px;
+    display: flex;
+    padding: 10px 10px;
+}
+
+.blockthis{
+    border-radius: 5px;
+    background-color: #3882f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 70px;
+    margin: 0 200px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    padding: 6px 25px;
+    border-radius: 5px;
+    background-color: #3882f6;
+}
+.signup-prompt a{
+    align-items: center;
+    border: 2.5px solid white;
+    background-color: none;
+}
+
+.signup-text-l{
+    text-align: left;
+}
+
+.signup-text-r{
+    text-align: right;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 40px;
+    color: white;
+    background-color: #1f2937;
+}
+
+.separator{
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.formcont {
+    gap:  60px;
+    display: flex;
+
+}
+.wUp p, .wUp img, .wUp a{
+    padding: 5px;
+    display: block;
+    justify-content: center;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 75px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  color: white;
+  background-color: #1f2937;
+  margin: auto;
+  padding: 5px;
+  border: 1px solid #888;
+  width: 60%;
+  border-radius: 15px;
+}
+
+.modaldiv{
+    
+    justify-content: center;
+    display: flex;
+    gap: 50px;
+}
+#download{
+    margin: 20px;
+    cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test</title>
+</head>
+<body>
+
+
+<input type="file" name="empInfo" id="empInfo" />
+
+
+
+
+<script>
+document.getElementById('empInfo').onchange = function() {
+  let empInfo = this.files[0];
+  let empInfoReader = new FileReader();
+  empInfoReader.onload = function(progressEvent){    
+    let fileContentArray = this.result.split(/\n/);
+    let singleLine = fileContentArray[1];
+    let empInfoArray = singleLine.split(',')
+    // for( let line = 0; line <= fileContentArray.length-1; line++ ) {
+    //   //console.log( (line+1) + " " + fileContentArray[line]);
+    //   let singleLine = fileContentArray[line];
+    // for (let separated in empInfoArray){
+    // 	console.log(empInfoArray);
+    // }
+       
+    // }
+  };
+  empInfoReader.readAsText(empInfo);
+};
+</script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

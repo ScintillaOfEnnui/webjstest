@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>front</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="background-color: black;">
+
+<img id="template1" width="678px" height="1086px"
+src="assets/front.png" alt="test" style="display: none;">
+
+<img id="pic" width="338px" height="324px"
+src="assets/real pic.png" alt="test" style="display: none;">
+
+<img id="sig" width="340px" height="138px"
+src="assets/sig.png" alt="test" style="display: none;">
+
+<div class="cont">
+      <canvas id="myCanvas" width="678px" height="1086px" style="display:none;">
+      </canvas>
+</div>
+<button id="download">Download Canvas</button>
+
+
+<script>
+window.onload = function() {
+  document.getElementById("myCanvas").style.display = "flex";
+  document.body.style.webkitTransform = 'scale(0.6)';  
+
+   var canvas = document.getElementById("myCanvas");
+   var ctx = canvas.getContext("2d");
+   var img = document.getElementById("template1");
+   var pic = document.getElementById("pic");
+   var sig = document.getElementById("sig");
+
+   ctx.drawImage(img, 0, 0);           //draw image
+   
+   ctx.font = 'bold 63px Arial';
+   ctx.textAlign = "center";
+
+   ctx.fillText('JOHN HENRY V. ALCAZAREN', 339, 735, 565);
+
+   ctx.font = 'bold 55px Arial';
+
+   ctx.fillText('ILO-001', 339, 855);
+
+   
+  ctx.drawImage(pic, 179, 333);
+  ctx.drawImage(sig, 178, 900);
+
+  ctx.font = 'bold 33px Arial';
+  ctx.fillStyle = "white";
+  ctx.shadowColor = "black";
+  ctx.shadowOffsetX = -2;
+  ctx.shadowOffsetY = 2;
+  ctx.shadowBlur = 1;
+
+  ctx.fillText('Supervisor', 339, 785, 338);
+  ctx.save();
+
+  //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  
+
+  //window.location.href=image; // it will save locally
+
+  document.getElementById('download').addEventListener('click', function(e) {
+  let canvasUrl = canvas.toDataURL("image/jpeg", 0.5);
+  console.log(canvasUrl);
+  const createEl = document.createElement('a');
+  createEl.href = canvasUrl;
+  createEl.download = name."-front";
+  createEl.click();
+  createEl.remove();
+});
+
+
+};
+ 
+</script>
+
+
+	
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>back</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="background-color: black;">
+
+
+
+<img id="backTemp" width="678px"  height="1086px"
+src="assets/back.png" alt="test" style="display: none;">
+
+
+<div class="cont">
+      <canvas id="backCanvas" width="678px" height="1086px" style="display:none;"></canvas>
+</div>
+
+
+
+<script>
+window.onload = function() {
+
+  document.getElementById("backCanvas").style.display = "flex";
+  document.body.style.webkitTransform = 'scale(0.6)';  
+
+
+   var bCanvas = document.getElementById("backCanvas");
+   var bctx = bCanvas.getContext("2d");
+   var bImg = document.getElementById("backTemp");
+
+   let bday = 'July 1, 1998';
+   let sss = '1-124-88851-5';
+   let tin = '123-123-123';
+   let add1 = 'Dungon B. Jaro,';
+   let add2 = 'Iloilo City';
+
+   let contName = document.getElementById("contName");
+   contName = 'test @ test'
+   let cName = 'NAME: ' + contName.toUpperCase();
+   let contNo = document.getElementById("contNo");
+   let cNumber = 'CONTACT NO.: ' + contNo;
+
+
+
+
+   bctx.drawImage(bImg, 0, 0);           //draw image
+
+   bctx.textAlign = "center";
+
+   bctx.font = 'bold 90px Book Antiqua'; // sss & tin font style
+   bctx.fillText(sss, 196, 380, 263); 
+   bctx.fillText(tin, 480, 380, 263); 
+
+   bctx.font = 'bold 44px Book Antiqua'; // date of birth font style
+   bctx.fillText(bday, 390, 440, 420);
+
+   bctx.font = 'bold 40px Book Antiqua'; // address line 1 and 2 font style
+   bctx.fillText(add1, 359, 500, 425);
+   bctx.fillText(add2, 359, 545, 425);
+
+   bctx.font = 'bold 24px verdana'; // address line 1 and 2 font style
+   bctx.fillText(cName, 339, 875, 425);
+   bctx.fillText(contNo, 339, 905, 580);
+
+
+
+};
+ 
+</script>
+
+
+	
+  </body>
+</html>
