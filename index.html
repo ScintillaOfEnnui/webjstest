@@ -10,9 +10,10 @@
 <body>
     <div class="top-container">
         <div class="header">
-            <p class="header-logo">IGL Logo TBA</p>
+            <p class="header-logo">Company Logo TBA</p>
             <ul class="header-ul">
-                <li>Browser-Based Basic ID Generator</li>
+                <li><a href="index.html" style="padding: 10px">Browser-Based Basic ID Generator</a></li>
+                <li><a href="print.html" style="padding: 10px">Printing Template</a></li>
             </ul>
         </div>
     </div>
@@ -105,7 +106,7 @@
         src="assets/sig.png" alt="test" style="display: none;">
 
         <div class="cont">
-              <canvas id="myCanvas" width="678px" height="1086px" style="display:flex;">
+              <canvas id="myCanvas" width="678px" height="1086px" style="display:none;">
               </canvas>
         </div>
 
@@ -138,6 +139,7 @@
               <canvas id="backCanvas" width="678px" height="1086px" style="display:none;"></canvas>
         </div>
         <!-- END OF ID BACK HTML CODE -->
+        <!-- moment.js used for converting html time format to readable format -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js">
         </script>
             
@@ -376,7 +378,6 @@
                         
                     }
                 };
-                
                 empInfoReader.readAsText(empInfo);
                 };
          
