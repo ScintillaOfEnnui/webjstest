@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGL ID Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-container">
+        <div class="header">
+            <p class="header-logo">Company Logo TBA</p>
+            <ul class="header-ul">
+                <li><a href="index.html" style="padding: 10px">Browser-Based Basic ID Generator</a></li>
+                <li><a href="print.html" style="padding: 10px">Printing Template</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bot-container ">
+        <div class="bot-title">Upload and Print</div>
+        <div style="width: 800px; align-items: center; margin: 0px auto; background-color: #cf9493; padding:30px;border: 5px solid #700505; ">
+        	<h3 class="description" style="margin: 20px 110px;">Upload four(4) front and four(4) back generated IDs simultaneously and hit Proceed to show preview of the generated Printing Template.</h3>
+        	<h4 class="description">Note: the preview will be compressed/low quality but the download file should be still high quality.</h4>
+        	<input class="upload2" type="file" name="uploadfile" id="upload2" multiple onchange="listuploaded()" />
+			<button id="download" onclick="drawimage()" style="display:none;">Proceed</button>
+			<label for="download" style="cursor: pointer; border: solid 1px black; padding: 2px 30px; background-color: white; color: black;">Proceed</label>
+        </div>
+        
+	
+
+
+	<!-- The Modal -->
+            <div id="myModal" class="modal" style="display: none; ">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Click download when it's ready!</p>
+                    
+                    <div class="modaldiv">
+                        <img id="modalImgFront" src="assets/front.png" width="700" height="450px">
+                        
+                    </div>
+                    <button id="download" onclick="downloadCanvas()">Download Canvas</button>
+                    
+                </div>
+
+            </div>
+
+
+	<img id="fi0" src="assets/front.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi1" src="assets/front.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi2" src="assets/front.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi3" src="assets/front.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi4" src="assets/back.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi5" src="assets/back.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi6" src="assets/back.png" width="678px" height="1086px" style="display:none;">
+	<img id="fi7" src="assets/back.png" width="678px" height="1086px" style="display:none;">
+
+
+	<canvas id="printCanvas" width="3508px" height="2480px" style="display:none;">
+
+		
+
+<script >
+	function listuploaded(){
+		let fileList = document.getElementById("upload2").files;
+			for(var i = 0; i < fileList.length; i++) {
+				let recurid = "fi"+i;
+				let recorded = URL.createObjectURL(event.target.files[i]);
+				console.log(recorded);
+				document.getElementById(recurid).src = recorded;
+				//document.getElementById(recurid).style.display = "flex";
+				console.log(document.getElementById(recurid).src);
+		    //document.getElementById(recurid).src=fileList[i].name;
+		}
+
+	
+}
+	var canvas = document.getElementById("printCanvas");
+	
+	function drawimage() {
+		
+	let printimg = document.getElementById("printguide");
+	let f1 = document.getElementById("fi0");
+	let b1 = document.getElementById("fi1");
+	let f2 = document.getElementById("fi2");
+	let b2 = document.getElementById("fi3");
+	let f3 = document.getElementById("fi4");
+	let b3 = document.getElementById("fi5");
+	let f4 = document.getElementById("fi6");
+	let b4 = document.getElementById("fi7");
+	var printctx = canvas.getContext("2d");	
+
+	printctx.fillStyle = "white";
+	printctx.fillRect(0, 0, 3508, 2480);
+
+	printctx.fillStyle = "black";	
+	printctx.drawImage(b1, 158, 100);
+	printctx.drawImage(b2, 1900, 100);
+	printctx.drawImage(b3, 158, 1186);
+	printctx.drawImage(b4, 1900, 1190);
+	printctx.drawImage(f1, 930, 100);
+	printctx.drawImage(f2, 2672, 100);
+	printctx.drawImage(f3, 930, 1186);
+	printctx.drawImage(f4, 2672, 1190);
+
+	// draw lines
+	// vertical
+	printctx.fillRect(156, 0, 2, 2480);//f1
+	printctx.fillRect(836, 0, 2, 2480);//f1
+
+	printctx.fillRect(928, 0, 2, 2480);//f2
+	printctx.fillRect(1608, 0, 2, 2480);//f2
+
+	printctx.fillRect(1898, 0, 2, 2480);//f3
+	printctx.fillRect(2578, 0, 2, 2480);//f3
+	
+	printctx.fillRect(2670, 0, 2, 2480);//f4
+	printctx.fillRect(3350, 0, 2, 2480);//f4
+
+	// horizontal
+	printctx.fillRect(0, 98, 3508, 2);
+	printctx.fillRect(0, 1184, 3508, 2);
+	printctx.fillRect(0, 2272, 3508, 2);
+
+	printctx.fillStyle = "black";
+	printctx.fillRect(882, 0, 2, 2480);//folding line
+	printctx.fillRect(1754, 0, 3, 2480);// middle line
+	printctx.fillRect(2624, 0, 2, 2480);//folding line 
+
+	// Get the modal
+	// Modal JS
+                let modal = document.getElementById("myModal");
+
+                modal.style.display = "block"; // Open Modal
+
+                // Get the <span> element that closes the modal
+                let span = document.getElementsByClassName("close")[0];
+
+                let modalCanvas = canvas.toDataURL("image/jpeg", 1);
+                let modalImgFront = document.getElementById("modalImgFront");
+                modalImgFront.src = modalCanvas;
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }
+	}
+	
+
+                
+
+		
+
+                    
+	function downloadCanvas(){ 
+		let canvasUrl = canvas.toDataURL("image/jpeg", 1);
+
+		let createEl = document.createElement('a');
+		createEl.href = canvasUrl;
+		createEl.download = 'printtemplate';
+		console.log(createEl);
+		createEl.click();
+		createEl.remove();
+
+	}
+
+</script>
+	</div>
+	<div class="footer" style="margin-top:160px; padding: 55px;">
+        Developed by: C. A. T. &copy; 2022</div>
+    </div>
+</body>
+</html>
